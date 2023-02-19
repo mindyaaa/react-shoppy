@@ -9,30 +9,53 @@ import Error from './components/Error';
 
 const router = createBrowserRouter([
   {
-  path : "/",
-  element : <Header />,
-  errorElement : <Error></Error>,
-  children : [{
-    index : true,
-    element : <h1>메인화면</h1>
-  }, 
-  {
-    path : "/products",
-    element : <p>All Products</p>
-  }, 
-  {
-    path : "/products/new",
-    element : <p>NEw Products</p>
-  }, {
+    path:'/',
+    element: <App />,
+    errorElement : <Error />,
+    children : [{
+      index : true,
+      element : <p>HIdd</p>
+    },
+    {
+      path : 'videos',
+      element : <p>HId</p>
+    },
+      {
+      path : 'videos/:keyword',
+      element : <p>HI</p>
+    }, {
+      path: 'videos/watch/:videoId',
+      element : <p>ddd</p>
+    }]
+  }
+])
 
-    path : "/products/:id",
-    element : <p>ProductDetails</p>
-  }, 
-  {
-    path : "/cart",
-    element : <p>cart</p>
-  }]
-}])
+// const router = createBrowserRouter([
+//   {
+//   path : "/",
+//   element : <Header />,
+//   errorElement : <Error></Error>,
+//   children : [{
+//     index : true,
+//     element : <h1>메인화면</h1>
+//   }, 
+//   {
+//     path : "/products",
+//     element : <p>All Products</p>
+//   }, 
+//   {
+//     path : "/products/new",
+//     element : <p>NEw Products</p>
+//   }, {
+
+//     path : "/products/:id",
+//     element : <p>ProductDetails</p>
+//   }, 
+//   {
+//     path : "/cart",
+//     element : <p>cart</p>
+//   }]
+// }])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
