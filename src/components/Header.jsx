@@ -2,6 +2,7 @@ import React from 'react';
 import {RiShoppingBag3Line} from 'react-icons/ri';
 import {BsFillPencilFill} from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import { login } from '../api/firebase';
 
 export default function Header() {
     return (
@@ -21,6 +22,7 @@ export default function Header() {
                 >
                     <BsFillPencilFill />
                 </Link>
+                <button onClick={login}>Login</button>
             </nav>
         </header>
     );
