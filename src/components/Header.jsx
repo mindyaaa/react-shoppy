@@ -2,9 +2,9 @@ import React from 'react';
 
 export default function Header() {
     return (
-        <div>
+        <hearder>
             나?헤더!
-        </div>
+        </hearder>
     );
 }
 

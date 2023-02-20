@@ -1,6 +1,10 @@
+import { Outlet } from 'react-router-dom';
+import Header from './components/Header';
+
 function App() {
   return <>
-  안녕하세요
+    <Header />
+    <Outlet />
   </>;
 }
 
