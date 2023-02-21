@@ -3,13 +3,15 @@ import {RiShoppingBag3Line} from 'react-icons/ri';
 import {BsFillPencilFill} from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { login,logout, onUserStateChange } from '../api/firebase';
+import User from './User';
+import Button from './ui/Button';
 
 export default function Header() {
     const [user, setUser] = useState('');
 
     useEffect(() => {
         onUserStateChange((user) => {
-            // console.log(user);
+            console.log(user);
             setUser(user);
         })
     }
@@ -17,7 +19,7 @@ export default function Header() {
 
     const loginHandler = () => {
         login()
-        .then((user) => setUser(user));
+        .then(setUser);
     }
 
     const logoutHandler = () => {
@@ -37,13 +39,18 @@ export default function Header() {
             className='flex items-center gap-4 font-semibold'>
                 <Link to='/products'>products</Link>
                 <Link to='/carts'>carts</Link>
+
+                {user && user.isAdmin ? 
                 <Link to='/products/new'
                 className='tex-2xl'
-                >
-                    <BsFillPencilFill />
-                </Link>
-                {!user && <button onClick={loginHandler}>Login</button>}
-                {user && <button onClick={logoutHandler}>Logout</button>}
+                ><BsFillPencilFill />
+                </Link> 
+                : null}
+
+
+                {user && <User user={user} />}
+                {!user && <Button text={'Login'} onClick={loginHandler}/>}
+                {user && <Button text={'Logout'} onClick={logoutHandler}/>}
             </nav>
         </header>
     );

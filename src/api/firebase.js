@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged} from "firebase/auth";
+import { getDatabase, ref, get } from "firebase/database";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -16,9 +17,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
+const db = getDatabase(app);
 
 export async function login() {
     return signInWithPopup(auth, provider)
@@ -37,5 +38,28 @@ export async function logout() {
 }
 
 export function onUserStateChange(callback) {
-    onAuthStateChanged(auth, (user) => callback(user));
+    onAuthStateChanged(auth, async (user) => {
+      // console.log(user);
+      const updatedUser = user ? await adminUser(user) : null;
+      callback(updatedUser);
+    });
+}
+
+async function adminUser(user) {
+
+return get(ref(db, 'admins'))
+.then((snapshot) => {
+  if (snapshot.exists()) {
+    const admins = snapshot.val();
+    // console.log(admins);
+    const isAdmin = admins.includes(user.uid);
+    return {...user, isAdmin};
+
+  } else {
+    return user;
+  }
+})
+.catch((error) => {
+  console.error(error);
+});
 }
