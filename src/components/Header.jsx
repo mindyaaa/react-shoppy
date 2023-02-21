@@ -5,26 +5,18 @@ import { Link } from 'react-router-dom';
 import { login,logout, onUserStateChange } from '../api/firebase';
 import User from './User';
 import Button from './ui/Button';
+import { useAuthContext } from './context/AuthContext';
 
 export default function Header() {
-    const [user, setUser] = useState('');
 
-    useEffect(() => {
-        onUserStateChange((user) => {
-            console.log(user);
-            setUser(user);
-        })
-    }
-    ,[])
+    const {user, login, logout} = useAuthContext();
 
     const loginHandler = () => {
         login()
-        .then(setUser);
     }
 
     const logoutHandler = () => {
         logout()
-        .then(setUser)
     }
 
     return (
@@ -38,7 +30,7 @@ export default function Header() {
             <nav
             className='flex items-center gap-4 font-semibold'>
                 <Link to='/products'>products</Link>
-                <Link to='/carts'>carts</Link>
+                {user && <Link to='/carts'>carts</Link>}
 
                 {user && user.isAdmin ? 
                 <Link to='/products/new'
