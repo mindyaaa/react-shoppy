@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Products from '../components/Products';
 
 export default function Home() {
+
     return (
         <>
-         <h1>홈화면</h1>          
+         <Products />      
         </>
     );
 }

@@ -1,0 +1,93 @@
+{
+  "20e23abb-cfc8-480e-9f55-c461a445a717": {
+    "category": "여성상의",
+    "description": "일곱번째 여성상의",
+    "id": "20e23abb-cfc8-480e-9f55-c461a445a717",
+    "image": "http://res.cloudinary.com/dguvdvkvt/image/upload/v1677046716/weypnh5xwd1ocpytxgho.webp",
+    "options": [
+      "s",
+      "m",
+      "l"
+    ],
+    "price": 70000,
+    "title": "일곱번째"
+  },
+  "4a7655c7-4bc2-4dc7-919a-ea298aac6db0": {
+    "category": "여성하의",
+    "description": "네번째 여성하의",
+    "id": "4a7655c7-4bc2-4dc7-919a-ea298aac6db0",
+    "image": "http://res.cloudinary.com/dguvdvkvt/image/upload/v1677046850/k9sflbhpblbk5hcjbzn2.webp",
+    "options": [
+      "s",
+      "m",
+      "l"
+    ],
+    "price": 50000,
+    "title": "네번째"
+  },
+  "6e3fe360-050b-4aaf-8ef5-b22054abf55f": {
+    "category": "여성상의",
+    "description": "다섯번째 여성상의",
+    "id": "6e3fe360-050b-4aaf-8ef5-b22054abf55f",
+    "image": "http://res.cloudinary.com/dguvdvkvt/image/upload/v1677046834/spegvinop2dnv0zc7wif.webp",
+    "options": [
+      "s",
+      "m",
+      "l"
+    ],
+    "price": 50000,
+    "title": "다섯번째"
+  },
+  "ab903c64-499c-4387-b07f-195b96a88fb0": {
+    "category": "여성원피스",
+    "description": "세번째 여성원피스",
+    "id": "ab903c64-499c-4387-b07f-195b96a88fb0",
+    "image": "http://res.cloudinary.com/dguvdvkvt/image/upload/v1677046874/cubsiqaqc8vwl6g1mu48.webp",
+    "options": [
+      "s",
+      "m",
+      "l"
+    ],
+    "price": 30000,
+    "title": "세번째"
+  },
+  "bb87e946-50af-48b5-b425-7eb78c39d42f": {
+    "category": "여성원피스",
+    "description": "여섯번째 여성원피스",
+    "id": "bb87e946-50af-48b5-b425-7eb78c39d42f",
+    "image": "http://res.cloudinary.com/dguvdvkvt/image/upload/v1677046790/tymphlf4afpugmdm7qwj.webp",
+    "options": [
+      "s",
+      "m",
+      "l"
+    ],
+    "price": 60000,
+    "title": "여섯번째"
+  },
+  "c10b1c7d-3a60-478f-801c-bea77e184a9e": {
+    "category": "여성상의",
+    "description": "첫번째 여성상의",
+    "id": "c10b1c7d-3a60-478f-801c-bea77e184a9e",
+    "image": "http://res.cloudinary.com/dguvdvkvt/image/upload/v1677046903/eusbqazxvappt5vlxqzh.webp",
+    "options": [
+      "s",
+      "m",
+      "l"
+    ],
+    "price": 10000,
+    "title": "첫번째"
+  },
+  "ffc8639a-d3fc-46be-856d-4a68b0f88b8f": {
+    "category": "여성상의",
+    "description": "두번째 여성상의",
+    "id": "ffc8639a-d3fc-46be-856d-4a68b0f88b8f",
+    "image": "http://res.cloudinary.com/dguvdvkvt/image/upload/v1677046892/fsstrsnimymduhsr8auf.webp",
+    "options": [
+      "s",
+      "m",
+      "l"
+    ],
+    "price": 20000,
+    "title": "두번째"
+  }
+}

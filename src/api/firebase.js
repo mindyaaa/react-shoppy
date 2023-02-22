@@ -68,11 +68,23 @@ return get(ref(db, 'admins'))
 
 export async function addNewProduct(product, image) {
   const id = uuid();
-  set(ref(db, `products/${id}`), {
+  return set(ref(db, `products/${id}`), {
     ...product,
     id,
     price: parseInt(product.price),
     image,
     options : product.options.split(','),
+  })
+}
+
+export async function getProducts() {
+  return get(ref(db, 'products'))
+  .then((snapshot) => {
+    if (snapshot.exists()) {
+      const itemData = Object.values(snapshot.val());
+      // console.log(itemData);
+      return itemData;
+    }
+
   })
 }
