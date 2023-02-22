@@ -1,7 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged} from "firebase/auth";
-import { getDatabase, ref, get } from "firebase/database";
+import { getDatabase, ref, get, set } from "firebase/database";
+import {v4 as uuid} from "uuid";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -62,4 +63,16 @@ return get(ref(db, 'admins'))
 .catch((error) => {
   console.error(error);
 });
+}
+
+
+export async function addNewProduct(product, image) {
+  const id = uuid();
+  set(ref(db, `products/${id}`), {
+    ...product,
+    id,
+    price: parseInt(product.price),
+    image,
+    options : product.options.split(','),
+  })
 }
