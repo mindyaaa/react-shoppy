@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged} from "firebase/auth";
-import { getDatabase, ref, get, set } from "firebase/database";
+import { getDatabase, ref, get, set, remove } from "firebase/database";
 import {v4 as uuid} from "uuid";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -87,4 +87,20 @@ export async function getProducts() {
     }
 
   })
+}
+
+export async function getCart(userId) {
+  return get(ref(db, `carts/${userId}`))
+  .then((snapshot) => {
+    const items = snapshot.val() || {};
+    return Object.values(items);
+  })
+}
+
+export async function addOnUpdateToCart(userId, product) {
+  return set(ref(db, `carts/${userId}/${product.id}`), product);
+}
+
+export async function removeFromCart(userId, productId) {
+  return remove(ref(db, `carts/${userId}/${productId}`));
 }

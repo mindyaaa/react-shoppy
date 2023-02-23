@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { login,logout, onUserStateChange } from '../api/firebase';
 import User from './User';
 import Button from './ui/Button';
-import { useAuthContext } from './context/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
+import CartStatus from './CartStatus';
 
 export default function Header() {
 
@@ -30,7 +31,9 @@ export default function Header() {
             <nav
             className='flex items-center gap-4 font-semibold'>
                 <Link to='/products'>products</Link>
-                {user && <Link to='/carts'>carts</Link>}
+                {user && <Link to='/carts'>
+                    <CartStatus />
+                    </Link>}
 
                 {user && user.isAdmin ? 
                 <Link to='/products/new'

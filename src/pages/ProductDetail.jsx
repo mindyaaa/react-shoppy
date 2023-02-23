@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { getProducts } from '../api/firebase';
-import { useParams } from 'react-router-dom';
+import { addOnUpdateToCart, getProducts } from '../api/firebase';
+import { useNavigate, useParams } from 'react-router-dom';
 import Button from '../components/ui/Button';
-
+import { useAuthContext } from '../context/AuthContext';
 
 export default function ProductDetail() {
 
+    const { uid } = useAuthContext();
+
+    const navigate = useNavigate();
     const {id} = useParams();
 
     const {data:products} = useQuery(
@@ -23,7 +26,11 @@ export default function ProductDetail() {
     }
 
     const handleClick = (e) => {
-        console.log('장바구니에 추가');
+        const product = {
+            id, image, title, price, option : selected, quantity : 1
+        };
+        addOnUpdateToCart(uid, product);
+        // navigate('/carts');
     }
 
     return (
