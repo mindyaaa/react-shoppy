@@ -3,8 +3,6 @@ import React from 'react';
 import { getProducts } from '../api/firebase';
 import ProductCard from './ProductCard';
 
-const queryClient = new QueryClient();
-
 export default function Products() {
 
     const {isLoading, error, data:products} = useQuery(
