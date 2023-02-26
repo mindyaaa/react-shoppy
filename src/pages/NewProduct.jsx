@@ -18,7 +18,6 @@ export default function NewProduct() {
 
         uploadeImage(file)
         .then((url) => {
-            // console.log(url);
             addProduct.mutate({product,url}, {onSuccess: () => {
                 setSuccess('성공적으로 제품이 추가되었습니다.');
                 setTimeout(() => setSuccess(null), 4000)
@@ -31,7 +30,6 @@ export default function NewProduct() {
         const {name, value, files} = e.target;
         if (name === 'file') {
             setFile(files && files[0]);
-            // console.log(file[0]);
             return;
         }
 
